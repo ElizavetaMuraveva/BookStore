@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книжный магазин</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .card {
+            background-color: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin: 0 0 10px 0;
+        }
+
+        .card-content p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .card-action {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .card-action button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card-action button:hover {
+            background-color: #218838;
+        }
+
+        select {
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+
+        .panel {
+            display: none;
+        }
+
+        .return-date {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+          
+        .panel {
+            display: none;
+        }
+        .btn {
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Книжный магазин</h1>
+
+    <div class="center">
+        <button class="btn" onclick="showPanel('admin')">Администратор</button>
+        <button class="btn" onclick="showPanel('user')">Пользователь</button>
+    </div>
+
+   
+    <div id="adminPanel" class="panel">
+        <h2>Панель администратора</h2>
+        <select id="sortOptionAdmin" onchange="sortBooks()">
+            <option value="category">Категория</option>
+            <option value="author">Автор</option>
+            <option value="year">Год</option>
+        </select>
+        <button class="btn" onclick="addBook()">Добавить книгу</button>
+        <button class="btn" onclick="sendReminder()">Отправить напоминание о сроке аренды</button>
+        <div id="adminBookList"></div>
+    </div>
+
+  
+    <div id="userPanel" class="panel">
+        <h2>Панель пользователя</h2>
+        <select id="sortOption" onchange="sortBooks()">
+            <option value="category">Категория</option>
+            <option value="author">Автор</option>
+            <option value="year">Год</option>
+        </select>
+        <div id="bookList"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
